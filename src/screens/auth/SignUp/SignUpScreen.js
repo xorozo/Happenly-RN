@@ -16,7 +16,7 @@ class SiginUpScreen extends React.Component {
   // === === //
   render() {
       return (
-        <ImageBackground source={require('../../../../assets/images/bg-auth.png')} style={appStyles.container}>
+        <ImageBackground source={require('../../../../assets/images/backgrounds/bg-auth.png')} style={appStyles.container}>
           <View style={appStyles.col_container}>
             <Image source={require('../../../../assets/images/logo-white.png')} style={styles.logo}></Image>
           </View>

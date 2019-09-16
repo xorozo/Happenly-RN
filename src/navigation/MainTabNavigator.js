@@ -12,7 +12,7 @@ import ProfileScreen from '../screens/tabs/Profile/ProfileScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
-  default: {},
+  default: { headerMode: 'none' },
 });
 
 // --- Home Tab --- //
@@ -32,7 +32,6 @@ HomeStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 HomeStack.path = '';
@@ -54,7 +53,6 @@ SearchStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 SearchStack.path = '';
@@ -76,7 +74,6 @@ FriendsStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 FriendsStack.path = '';
@@ -86,7 +83,7 @@ const TicketsStack = createStackNavigator(
   {
     Tickets: TicketsScreen,
   },
-  config
+  {headerMode: 'screen'}
 );
 
 TicketsStack.navigationOptions = {
@@ -98,7 +95,6 @@ TicketsStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 TicketsStack.path = '';
@@ -120,7 +116,6 @@ ProfileStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 ProfileStack.path = '';
@@ -133,6 +128,15 @@ const tabNavigator = createBottomTabNavigator({
   FriendsStack,
   TicketsStack,
   ProfileStack,
+}, {
+  initialRouteName: 'TicketsStack',
+  tabBarOptions: {
+    activeTintColor: Colors.pinkColor,
+    style: {
+      backgroundColor: Colors.lightGrayColor,
+      borderTopWidth: 0
+    }
+  }
 });
 
 tabNavigator.path = '';
