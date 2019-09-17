@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, ImageBackground, TouchableOpacity, Image, Text } from 'react-native';
+import { View, StyleSheet, ImageBackground, TouchableOpacity, Image, Text, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import appStyles from '../styles/app-style';
@@ -7,10 +7,10 @@ import AvatarGroup from './AvatarGroup';
 
 export default function EventCard(props) {
   return (
-    <View style={[styles.card_container, appStyles.shadow]}>
+    <View style={[styles.card_container, appStyles.light_shadow]}>
         <View style={styles.card_image_container}>
             <ImageBackground 
-                style={[styles.card_image, {height: 220}]}
+                style={[styles.card_image, props.size == 'sm' && {height: Dimensions.get('window').width * 0.35}, props.size != 'sm' && {height: Dimensions.get('window').width * 0.55}]}
                 source={require('../../assets/images/events/events0.png')} 
             >
                 <TouchableOpacity
@@ -23,14 +23,14 @@ export default function EventCard(props) {
                 </TouchableOpacity>
             </ImageBackground>
         </View>
-        <View style={styles.item_container}>
+        <View style={[styles.item_container, props.size == 'sm' && {paddingTop: 5, paddingBottom: 5}]}>
             <View style={{flex: 8}}>
                 <View style={[appStyles.row_container, {justifyContent: 'flex-start'}]}>
-                    <Text style={[appStyles.font_lg, appStyles.font_bold]}>{props.name}</Text>
+                    <Text style={[appStyles.font_bold, appStyles.font_lg, props.size == 'sm' && appStyles.font_md]}>{props.name}</Text>
                 </View>
                 <View style={[appStyles.row_container, {justifyContent: 'flex-start'}]}>
                     <View>
-                        <Text style={[appStyles.font_md, appStyles.gray]}>Music∙Concerts∙Live Shows</Text>
+                        <Text style={[appStyles.gray, appStyles.font_md, props.size == 'sm' && appStyles.font_sm]}>Music∙Concerts∙Live Shows</Text>
                     </View>
                 </View>
                 <View style={[appStyles.row_container, {justifyContent: 'flex-start'}]}>
@@ -41,13 +41,13 @@ export default function EventCard(props) {
                         />
                     </View>
                     <View>
-                        <Text style={[appStyles.font_md, appStyles.gray]}>3.4km - {props.place}</Text>
+                        <Text style={[appStyles.gray, appStyles.font_md, props.size == 'sm' && appStyles.font_sm]}>3.4km - {props.place}</Text>
                     </View>
                 </View>
             </View>
             <View style={{flex: 2, alignItems: 'flex-end'}}>
                 <View style={styles.event_date}>
-                    <Text style={appStyles.white}>{props.open_at}</Text>
+                    <Text style={[appStyles.white, props.size == 'sm' && appStyles.font_sm]}>{props.open_at}</Text>
                 </View>
             </View>
         </View>
@@ -56,7 +56,7 @@ export default function EventCard(props) {
                 source={require('../../assets/images/icons/dot-line.png')} 
                 style={[styles.card_divider]}/>
         </View>
-        <View style={styles.item_footer_container}>
+        <View style={[styles.item_footer_container, props.size == 'sm' && {paddingTop: 2, paddingBottom: 2}]}>
             <View style={[appStyles.row_container, {flex: 1, justifyContent: 'flex-start'}]}>
                 <View style={{paddingLeft: 10, paddingRight: 10}}>
                     <Text style={appStyles.pink}>$20</Text>
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
         overflow: 'hidden',
-        marginLeft: 2.62, 
-        marginRight: 2.62
+        marginLeft: 1.41, 
+        marginRight: 1.41
     },
     card_image: {
         alignItems: 'flex-end',

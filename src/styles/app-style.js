@@ -31,6 +31,26 @@ export default {
       shadowColor: '#000',
       shadowOffset: {
         width: 0,
+        height: 1,
+      },
+      shadowOpacity: 0.22,
+      shadowRadius: 2.22,
+      elevation: 3,
+    },
+    light_shadow: {
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 1,
+      },
+      shadowOpacity: 0.20,
+      shadowRadius: 1.41,
+      elevation: 2,
+    },
+    strong_shadow: {
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
         height: 2,
       },
       shadowOpacity: 0.23,
@@ -46,6 +66,9 @@ export default {
     white: {
       color: '#fff',
     },
+    black: {
+      color: '#000',
+    },
     primary: {
       color: '#6c4ff8',
     }, 
@@ -57,6 +80,9 @@ export default {
     },
     pink: {
       color: Colors.pinkColor,
+    },
+    font_xl: {
+      fontSize: 22,
     },
     font_lg: {
       fontSize: 18,

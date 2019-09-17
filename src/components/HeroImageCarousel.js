@@ -1,30 +1,46 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, Image, Text, View, TouchableOpacity, TouchableHighlight, Alert, KeyboardAvoidingView, StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView, Image, Text, View, TouchableOpacity, TouchableHighlight, Alert, KeyboardAvoidingView, StyleSheet, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import ImageSlider from 'react-native-image-slider';
 import Colors from '../constants/Colors';
 import appStyles from '../styles/app-style';
 
-export default function HeroImageSlider(props) {
+export default function HeroImageCarousel(props) {
   const images = [
     {
       id: 1,
       url: 'https://placeimg.com/640/640/nature',
+      title: 'Events this Weekend',
       caption: 'Trending in San Francisco'
     },
     {
       id: 2,
       url: 'https://placeimg.com/640/640/people',
+      title: 'Events this Weekend',
       caption: 'Silent in Fragment'
     },
     {
       id: 3,
       url: 'https://placeimg.com/640/640/animals',
+      title: 'Events this Weekend',
       caption: 'Falling in Los Angelos'
     },
     {
       id: 4,
       url: 'https://placeimg.com/640/640/beer',
+      title: 'Events this Weekend',
+      caption: 'Beer Camp in Taxes'
+    },
+    {
+      id: 5,
+      url: 'https://placeimg.com/640/640/car',
+      title: 'Events this Weekend',
+      caption: 'Beer Camp in Taxes'
+    },
+    {
+      id: 6,
+      url: 'https://placeimg.com/640/640/pool',
+      title: 'Events this Weekend',
       caption: 'Beer Camp in Taxes'
     }
   ];
@@ -34,27 +50,15 @@ export default function HeroImageSlider(props) {
       <ImageSlider
         loopBothSides
         autoPlayWithInterval={3000}
-        style={{height: 270}} 
+        style={{height: Dimensions.get('window').width * 0.55}} 
         images={images}
         customSlide={({ index, item, style, width }) => (
         // It's important to put style here because it's got offset inside
-        <View key={index} style={[style, styles.customSlide]}>
+        <View key={index} style={[style, styles.customSlide, appStyles.light_shadow]}>
           <Image source={{ uri: item.url }} style={styles.customImage} />
           <View style={[styles.captionContainer, {justifyContent: 'flex-end'}]}>
-            <TouchableOpacity
-              style={styles.locationButton} 
-              onPress={() => Alert.alert('clicked location!')}
-            >
-              <Image 
-                source={require('../../assets/images/icons/location-white.png')} 
-                style={styles.locationIcon}
-              />
-            </TouchableOpacity>
-            <Image 
-              source={require('../../assets/images/icons/logo-white.png')} 
-              style={styles.whiteLogo}
-            />
-            <Text style={[appStyles.white, appStyles.font_bold, appStyles.font_xl]}>{item.caption}</Text>
+            <Text style={[appStyles.white, appStyles.font_bold, appStyles.font_xl]}>{item.title}</Text>
+            <Text style={[appStyles.white, appStyles.font_lg]}>{item.caption}</Text>
           </View>
         </View>
         )}
@@ -91,9 +95,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingBottom: 70,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 5,
   },
   locationButton: {
     position: 'absolute',
@@ -111,19 +115,18 @@ const styles = StyleSheet.create({
   buttons: {
     zIndex: 1,
     height: 15,
-    marginTop: -70,
-    marginBottom: 60,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
+    backgroundColor: Colors.whiteColor,
   },
   button: {
-    backgroundColor: Colors.whiteColor,
+    backgroundColor: Colors.lightGrayColor,
     margin: 3,
-    width: 6,
-    height: 6,
+    width: 8,
+    height: 8,
     borderRadius: 5,
-    opacity: 0.9,
+    opacity: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -132,15 +135,18 @@ const styles = StyleSheet.create({
     height: '100%',
     borderRadius: 5,
     opacity: 1,
-    backgroundColor: Colors.pinkColor,
+    backgroundColor: Colors.tintColor,
   },
   customSlide: {
-    backgroundColor: 'green',
+    backgroundColor: Colors.whiteColor,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 10,
+    paddingBottom: 0,
   },
   customImage: {
     width: '100%',
     height: '100%',
+    borderRadius: 10,
   },
 });
