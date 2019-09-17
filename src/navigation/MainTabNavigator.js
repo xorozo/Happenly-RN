@@ -129,7 +129,7 @@ const tabNavigator = createBottomTabNavigator({
   TicketsStack,
   ProfileStack,
 }, {
-  initialRouteName: 'TicketsStack',
+  initialRouteName: 'HomeStack',
   tabBarOptions: {
     activeTintColor: Colors.pinkColor,
     style: {

@@ -27,6 +27,16 @@ export default {
       borderBottomColor: '#fff',
       borderBottomWidth: 1,
     }, 
+    shadow: {
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.23,
+      shadowRadius: 2.62,
+      elevation: 4,
+    },
     w_100: {
       width: '100%',
     },
@@ -59,6 +69,9 @@ export default {
     },
     font_bold: {
       fontWeight: 'bold',
+    },
+    hidden: {
+      display: 'none',
     },
     test_border: {
       borderColor: '#0f0',

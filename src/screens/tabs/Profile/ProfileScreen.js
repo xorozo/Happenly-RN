@@ -77,7 +77,7 @@ class ProfileScreen extends React.Component {
                       onPress={() => this.goMyPlaces()}
                     >
                       <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlin}]}
+                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
                       >My Places</Text>
                       <Image 
                         source={require('../../../../assets/images/icons/right-arrow.png')} 
@@ -89,7 +89,7 @@ class ProfileScreen extends React.Component {
                       onPress={() => this.goMyPlaces()}
                     >
                       <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlin}]}
+                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
                       >My Artists</Text>
                       <Image 
                         source={require('../../../../assets/images/icons/right-arrow.png')} 
@@ -101,7 +101,7 @@ class ProfileScreen extends React.Component {
                       onPress={() => this.goMyPlaces()}
                     >
                       <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlin}]}
+                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
                       >Favorited Events</Text>
                       <Image 
                         source={require('../../../../assets/images/icons/right-arrow.png')} 
@@ -113,7 +113,7 @@ class ProfileScreen extends React.Component {
                       onPress={() => this.goMyPlaces()}
                     >
                       <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlin}]}
+                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
                       >Payment Method</Text>
                       <Image 
                         source={require('../../../../assets/images/icons/right-arrow.png')} 
@@ -125,7 +125,7 @@ class ProfileScreen extends React.Component {
                       onPress={() => this.goMyPlaces()}
                     >
                       <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlin}]}
+                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
                       >Settings</Text>
                       <Image 
                         source={require('../../../../assets/images/icons/right-arrow.png')} 
