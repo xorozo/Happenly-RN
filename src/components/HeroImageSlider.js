@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     height: '100%',
     paddingLeft: 15,
     paddingRight: 15,
-    paddingBottom: 80,
+    paddingBottom: 70,
   },
   locationButton: {
     position: 'absolute',
@@ -111,8 +111,8 @@ const styles = StyleSheet.create({
   buttons: {
     zIndex: 1,
     height: 15,
-    marginTop: -80,
-    marginBottom: 65,
+    marginTop: -70,
+    marginBottom: 60,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',

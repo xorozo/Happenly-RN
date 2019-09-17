@@ -3,6 +3,8 @@ import { SafeAreaView, ScrollView, FlatList, Image, Text, View, TouchableOpacity
 import HeroImageSlider from '../../../components/HeroImageSlider';
 import EventCard from '../../../components/EventCard';
 import appStyles from '../../../styles/app-style';
+import { TextInput } from 'react-native-gesture-handler';
+import Colors from '../../../constants/Colors';
 // import styles from './style';
 
 const DATA = [
@@ -71,6 +73,18 @@ class HomeScreen extends React.Component {
             <SafeAreaView style={appStyles.container}>
               <ScrollView>
                 <HeroImageSlider />
+                <View style={[appStyles.row_container, styles.search_box]}>
+                  <Image 
+                    source={require('../../../../assets/images/icons/search0.png')} 
+                    style={styles.search_icon} 
+                  />
+                  <TextInput 
+                    placeholder={'Search'}
+                    placeholderTextColor={Colors.grayColor} 
+                    maxLength={40} 
+                    style={styles.search_input} 
+                  />
+                </View>
                 <FlatList 
                   style={{paddingTop: 10, paddingBottom: 10}} 
                   data={DATA} 
@@ -91,3 +105,30 @@ class HomeScreen extends React.Component {
 }
 
 export default HomeScreen;
+
+const styles = StyleSheet.create({
+  search_box: {
+    justifyContent: 'flex-start',
+    marginTop: -55,
+    marginBottom: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: Colors.blackColor,
+    opacity: 0.57,
+  },
+  search_icon: {
+    width: 25,
+    height: 25,
+    position: 'absolute',
+    left: 20,
+  },
+  search_input: {
+    width: '100%',
+    color: Colors.whiteColor,
+    fontSize: 18,
+    paddingLeft: 40,
+    paddingRight: 20,
+  }
+});
