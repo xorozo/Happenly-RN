@@ -41,15 +41,6 @@ export default function HeroImageSlider(props) {
         <View key={index} style={[style, styles.customSlide]}>
           <Image source={{ uri: item.url }} style={styles.customImage} />
           <View style={[styles.captionContainer, {justifyContent: 'flex-end'}]}>
-            <TouchableOpacity
-              style={styles.locationButton} 
-              onPress={() => Alert.alert('clicked location!')}
-            >
-              <Image 
-                source={require('../../assets/images/icons/location-white.png')} 
-                style={styles.locationIcon}
-              />
-            </TouchableOpacity>
             <Image 
               source={require('../../assets/images/icons/logo-white.png')} 
               style={styles.whiteLogo}
@@ -94,15 +85,6 @@ const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
     paddingBottom: 70,
-  },
-  locationButton: {
-    position: 'absolute',
-    top: 40,
-    right: 10,
-  },
-  locationIcon: {
-    width: 25,
-    height: 25,
   },
   whiteLogo: {
     width: 45,

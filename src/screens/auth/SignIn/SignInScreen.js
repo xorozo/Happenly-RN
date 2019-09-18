@@ -70,11 +70,11 @@ class SiginInScreen extends React.Component {
 
     // === === //
     signIn = () => {
-      this.props.navigation.navigate('Main');
+      this.props.navigation.navigate('App');
     }
 
     goSignUpScreen = () => {
-      this.props.navigation.replace('SignUp');
+      this.props.navigation.navigate('SignUp');
     }
 }
 

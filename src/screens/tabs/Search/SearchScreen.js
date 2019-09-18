@@ -21,8 +21,19 @@ class SearchScreen extends React.Component {
         return (
           <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-              <Text style={[appStyles.black, appStyles.font_xl, appStyles.font_bold, {paddingRight: 10}]}>Explore</Text>
-              <Text style={[appStyles.pink, appStyles.font_xl, appStyles.font_bold]}>Chicago IL</Text>
+              <TouchableOpacity
+                style={styles.location_button} 
+                onPress={() => this.goSearchOnMapScreen()}
+              >
+                <Image 
+                  style={styles.location_icon} 
+                  source={require('../../../../assets/images/icons/location-tint.png')}
+                />
+              </TouchableOpacity>
+              <View style={styles.header_title}>
+                <Text style={[appStyles.black, appStyles.font_xl, appStyles.font_bold, {paddingRight: 10}]}>Explore</Text>
+                <Text style={[appStyles.pink, appStyles.font_xl, appStyles.font_bold]}>Chicago IL</Text>
+              </View>
             </View>
             <ScrollView>
               <View>
@@ -45,9 +56,12 @@ class SearchScreen extends React.Component {
                     data={DATA}
                     renderItem={({item, index}) => {
                       return (
-                        <View style={{paddingTop: 5, paddingBottom: 5}}>
+                        <TouchableOpacity 
+                          style={{paddingTop: 5, paddingBottom: 5}}
+                          onPress={() => this.goEventDetailScreen()}
+                        >
                           <EventCard size={'sm'} name={item.name} place={item.place} open_at={item.open_at} />
-                        </View>
+                        </TouchableOpacity>
                       );
                     }}
                     sliderWidth={Dimensions.get('window').width}
@@ -65,7 +79,7 @@ class SearchScreen extends React.Component {
                   renderItem={({item, index, separators}) => ( 
                     <TouchableOpacity 
                       style={{padding: 10}} 
-                      onPress={() => Alert.alert('clicked card')}
+                      onPress={() => this.goEventDetailScreen()}
                     >
                       <EventCard name={item.name} place={item.place} open_at={item.open_at} />
                     </TouchableOpacity>
@@ -77,6 +91,15 @@ class SearchScreen extends React.Component {
           </SafeAreaView>
         );
     }
+  
+  // === === //
+  goEventDetailScreen = () => {
+    this.props.navigation.navigate('EventDetail');
+  }
+
+  goSearchOnMapScreen = () => {
+    this.props.navigation.navigate('SearchOnMap');
+  }
 }
 
 export default SearchScreen;
@@ -86,12 +109,28 @@ const styles=StyleSheet.create({
     flex: 1,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    height: 60,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    height: 75,
     padding: 15,
+    paddingBottom: 10,
     marginTop: 22,
+  },
+  header_title: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-start',
+  },
+  location_button: {
+    position: 'absolute',
+    top: 18,
+    right: 10,
+    zIndex: 1,
+  },
+  location_icon: {
+    width: 25,
+    height: 25,
   },
   sub_header: {
     paddingLeft: 20,

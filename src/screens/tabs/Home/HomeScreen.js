@@ -72,6 +72,15 @@ class HomeScreen extends React.Component {
         return (
             <SafeAreaView style={appStyles.container}>
               <ScrollView>
+                <TouchableOpacity
+                  style={styles.location_button} 
+                  onPress={() => Alert.alert('clicked location!')}
+                >
+                  <Image 
+                    source={require('../../../../assets/images/icons/location-white.png')} 
+                    style={styles.location_icon}
+                  />
+                </TouchableOpacity>
                 <HeroImageSlider />
                 <View style={[appStyles.row_container, styles.search_box]}>
                   <Image 
@@ -91,7 +100,7 @@ class HomeScreen extends React.Component {
                   renderItem={({item, index, separators}) => ( 
                     <TouchableOpacity 
                       style={{padding: 10}} 
-                      onPress={() => Alert.alert('clicked card')}
+                      onPress={() => this.goEventDetailScreen()}
                     >
                       <EventCard name={item.name} place={item.place} open_at={item.open_at} />
                     </TouchableOpacity>
@@ -102,11 +111,26 @@ class HomeScreen extends React.Component {
             </SafeAreaView>
         );
     }
+
+  // === === //
+  goEventDetailScreen = () => {
+    this.props.navigation.navigate('EventDetail');
+  }
 }
 
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  location_button: {
+    position: 'absolute',
+    top: 40,
+    right: 10,
+    zIndex: 1,
+  },
+  location_icon: {
+    width: 25,
+    height: 25,
+  },
   search_box: {
     justifyContent: 'flex-start',
     marginTop: -55,
