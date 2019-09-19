@@ -12,7 +12,7 @@ const MainAppNavigator = createStackNavigator({
   EventsOnMap: {screen: EventsOnMapScreen},
   SearchOnMap: {screen: SearchOnMapScreen},
 },{
-  // initialRouteName: 'SearchOnMap',
+  initialRouteName: 'SearchOnMap',
   headerMode: 'none',
 })
 

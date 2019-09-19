@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, TextInput, Image, Text, View, TouchableOpacity, TouchableHighlight, Alert, KeyboardAvoidingView, StyleSheet, Dimensions, FlatList } from 'react-native';
 import appStyles from '../../../styles/app-style';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import styles from './style';
 import Colors from '../../../constants/Colors';
 import EventItem from '../../../components/EventItem';
@@ -79,12 +79,17 @@ class SearchOnMapScreen extends React.Component {
             <MapView
               style={{flex: 1}}
               initialRegion={{
-                latitude: 37.78825,
-                longitude: -122.4324,
+                latitude: global.my_location.latitude,
+                longitude: global.my_location.longitude,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421,
               }}
-            />
+            >
+              <Marker 
+                coordinate={global.my_location} 
+                image={require('../../../../assets/images/icons/marker-red.png')} 
+              />
+            </MapView>
             <View style={[styles.results_container, this.state.result_height && {height: this.state.result_height}]}>
               <View style={styles.events_list_card}>
                 <View style={styles.toggle_hide_button_container}>

@@ -1,5 +1,5 @@
 export default {
-    syncCurrentPosition: function () {
+    syncCurrentPosition: function (props) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 global.my_location = {
@@ -7,6 +7,8 @@ export default {
                     longitude: position.coords.longitude,
                     error: null,
                 };
+                props.spinner = false;
+                console.log('=====>>>>>', global.my_location);
             },
             (error) => {
                 global.my_location = {
@@ -14,6 +16,8 @@ export default {
                     longitude: null,
                     error: error.message,
                 };
+                props.spinner = false;
+                console.log('=====>>>>>', global.my_location);
             },
             {
                 enableHighAccuracy: false,
