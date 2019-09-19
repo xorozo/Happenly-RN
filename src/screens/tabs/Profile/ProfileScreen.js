@@ -25,7 +25,7 @@ class ProfileScreen extends React.Component {
                 <View style={[appStyles.col_container, {flex: 2}]}>
                   <TouchableOpacity
                     style={styles.edit_button}
-                    onPress={() => this.editProfile()}
+                    onPress={() => this.goProfileEditScreen()}
                   >
                     <Image 
                       source={require('../../../../assets/images/icons/pencil.png')} 
@@ -139,8 +139,8 @@ class ProfileScreen extends React.Component {
         );
     }
 
-  editProfile = () => {
-    Alert.alert('You clicked Edit Profile');
+  goProfileEditScreen = () => {
+    this.props.navigation.navigate('ProfileEdit');
   }
 
   goNextEvent = () => {
