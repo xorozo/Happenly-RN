@@ -74,7 +74,7 @@ class ProfileScreen extends React.Component {
                   <View style={[appStyles.col_container, {alignItems: 'flex-start', paddingTop: 20, paddingBottom: 20}]}>
                     <TouchableOpacity
                       style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.goMyPlaces()}
+                      onPress={() => this.props.navigation.navigate('MyPlaces')}
                     >
                       <Text 
                         style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
@@ -86,7 +86,7 @@ class ProfileScreen extends React.Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.goMyPlaces()}
+                      onPress={() => this.props.navigation.navigate('MyArtists')}
                     >
                       <Text 
                         style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
@@ -98,7 +98,7 @@ class ProfileScreen extends React.Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.goMyPlaces()}
+                      onPress={() => this.props.navigation.navigate('FavoritedEvents')}
                     >
                       <Text 
                         style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
@@ -110,7 +110,7 @@ class ProfileScreen extends React.Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.goMyPlaces()}
+                      onPress={() => this.props.navigation.navigate('Payment')}
                     >
                       <Text 
                         style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
@@ -122,7 +122,7 @@ class ProfileScreen extends React.Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.goMyPlaces()}
+                      onPress={() => this.props.navigation.navigate('Settings')}
                     >
                       <Text 
                         style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
@@ -151,9 +151,6 @@ class ProfileScreen extends React.Component {
     Alert.alert('Show all events');
   }
 
-  goMyPlaces = () => {
-    Alert.alert('Show all events');
-  }
 }
 
 export default ProfileScreen;
