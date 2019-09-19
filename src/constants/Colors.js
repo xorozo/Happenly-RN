@@ -1,10 +1,6 @@
+const tintColor = '#2f95dc';
 const whiteColor = '#ffffff';
 const blackColor = '#000000';
-const tintColor = '#2f95dc';
-const pinkColor = '#ff1b71';
-const lightGrayColor = '#eceeef';
-const airForceBlueColor = '#5996a8';
-const blackMarlinColor = '#39393e';
 const grayColor = '#808080';
 
 export default {
@@ -12,10 +8,6 @@ export default {
   blackColor,
   grayColor,
   tintColor,
-  pinkColor,
-  lightGrayColor,
-  airForceBlueColor,
-  blackMarlinColor,
   tabIconDefault: '#ccc',
   tabIconSelected: tintColor,
   tabBar: '#fefefe',
@@ -25,4 +17,9 @@ export default {
   warningText: '#666804',
   noticeBackground: tintColor,
   noticeText: '#fff',
+  whiteSmoke: '#f1f1f1',
+  pinkColor: '#ff1b71',
+  lightGrayColor: '#eceeef',
+  airForceBlueColor: '#5996a8',
+  blackMarlinColor: '#39393e',
 };

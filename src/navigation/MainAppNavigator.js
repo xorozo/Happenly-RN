@@ -3,12 +3,16 @@ import { createAppContainer, createSwitchNavigator, createStackNavigator } from 
 
 import MainTabNavigator from './MainTabNavigator';
 import EventDetailScreen from '../screens/main/EventDetail/EventDetailScreen';
+import EventsOnMapScreen from '../screens/main/EventsOnMap/EventsOnMapScreen';
+import SearchOnMapScreen from '../screens/main/SearchOnMap/SearchOnMapScreen';
 
 const MainAppNavigator = createStackNavigator({
   Tab: MainTabNavigator,
   EventDetail: {screen: EventDetailScreen},
+  EventsOnMap: {screen: EventsOnMapScreen},
+  SearchOnMap: {screen: SearchOnMapScreen},
 },{
-//   initialRouteName: '',
+  // initialRouteName: 'SearchOnMap',
   headerMode: 'none',
 })
 

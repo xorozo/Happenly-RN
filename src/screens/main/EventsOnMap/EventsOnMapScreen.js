@@ -1,11 +1,12 @@
 import React from 'react';
 import { SafeAreaView, ImageBackground, Image, Text, View, TouchableOpacity, TouchableHighlight, Alert, KeyboardAvoidingView, StyleSheet, Dimensions, FlatList } from 'react-native';
 import appStyles from '../../../styles/app-style';
-import { ScrollView } from 'react-native-gesture-handler';
+import MapView from 'react-native-maps';
 import EventCard from '../../../components/EventCard';
 import Carousel from 'react-native-snap-carousel';
+import styles from './style';
 
-class SearchOnMapScreen extends React.Component {
+class EventsOnMapScreen extends React.Component {
   constructor(props) {
     super(props);
 
@@ -31,7 +32,16 @@ class SearchOnMapScreen extends React.Component {
                   source={require('../../../../assets/images/icons/times-white.png')}
                 />
               </TouchableOpacity>
-              <View style={[styles.carousel_container, appStyles.test_border, {zIndex: 1}]}>
+              <MapView
+                style={{flex: 1}}
+                initialRegion={{
+                  latitude: 37.78825,
+                  longitude: -122.4324,
+                  latitudeDelta: 0.0922,
+                  longitudeDelta: 0.0421,
+                }}
+              />
+              <View style={styles.carousel_container}>
                 <Carousel
                   layout={'default'}
                   ref={(c) => { this._carousel = c; }}
@@ -51,6 +61,7 @@ class SearchOnMapScreen extends React.Component {
                   style={[appStyles.test_border, {borderColor: 'red'}]} 
                 />
               </View>
+
             </ImageBackground>
             
           </SafeAreaView>
@@ -67,29 +78,7 @@ class SearchOnMapScreen extends React.Component {
   }
 }
 
-export default SearchOnMapScreen;
-
-const styles=StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  bg_overlay: {
-    flex: 1,
-  },
-  close_button: {
-    position: 'absolute',
-    top: 40,
-    left: 15,
-    zIndex: 1,
-  },
-  times_icon: {
-    width: 25,
-    height: 25,
-  },
-  carousel_container: {
-    flex: 1
-  },
-})
+export default EventsOnMapScreen;
 
 const DATA = [
   {

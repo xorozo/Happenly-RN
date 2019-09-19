@@ -6,7 +6,6 @@ import TabBarIcon from '../components/TabBarIcon';
 import Colors from '../constants/Colors';
 import HomeScreen from '../screens/tabs/Home/HomeScreen';
 import SearchScreen from '../screens/tabs/Search/SearchScreen';
-import SearchOnMapScreen from '../screens/tabs/Search/SearchOnMapScreen';
 import FriendsScreen from '../screens/tabs/Friends/FriendsScreen';
 import TicketsScreen from '../screens/tabs/Tickets/TicketsScreen';
 import ProfileScreen from '../screens/tabs/Profile/ProfileScreen';
@@ -41,7 +40,6 @@ HomeStack.path = '';
 const SearchStack = createStackNavigator(
   {
     Search: SearchScreen,
-    SearchOnMap: SearchOnMapScreen,
   },
   config
 );
@@ -131,7 +129,7 @@ const tabNavigator = createBottomTabNavigator({
   TicketsStack,
   ProfileStack,
 }, {
-  initialRouteName: 'SearchStack',
+  initialRouteName: 'HomeStack',
   tabBarOptions: {
     activeTintColor: Colors.pinkColor,
     style: {

@@ -23,7 +23,7 @@ class SearchScreen extends React.Component {
             <View style={styles.header}>
               <TouchableOpacity
                 style={styles.location_button} 
-                onPress={() => this.goSearchOnMapScreen()}
+                onPress={() => this.goEventsOnMapScreen()}
               >
                 <Image 
                   style={styles.location_icon} 
@@ -97,8 +97,8 @@ class SearchScreen extends React.Component {
     this.props.navigation.navigate('EventDetail');
   }
 
-  goSearchOnMapScreen = () => {
-    this.props.navigation.navigate('SearchOnMap');
+  goEventsOnMapScreen = () => {
+    this.props.navigation.navigate('EventsOnMap');
   }
 }
 

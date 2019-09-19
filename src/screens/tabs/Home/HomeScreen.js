@@ -74,7 +74,7 @@ class HomeScreen extends React.Component {
               <ScrollView>
                 <TouchableOpacity
                   style={styles.location_button} 
-                  onPress={() => Alert.alert('clicked location!')}
+                  onPress={() => this.goSearchOnMapScreen()}
                 >
                   <Image 
                     source={require('../../../../assets/images/icons/location-white.png')} 
@@ -113,6 +113,10 @@ class HomeScreen extends React.Component {
     }
 
   // === === //
+  goSearchOnMapScreen = () => {
+    this.props.navigation.navigate('SearchOnMap');
+  }
+
   goEventDetailScreen = () => {
     this.props.navigation.navigate('EventDetail');
   }

@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 10,
         paddingRight: 5,
+        backgroundColor: Colors.whiteColor,
     },
     event_date: {
         backgroundColor: Colors.airForceBlueColor,

@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         padding: 10,
         paddingRight: 0,
+        backgroundColor: Colors.whiteColor,
     },
     event_date: {
         backgroundColor: Colors.airForceBlueColor,
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         padding: 5,
+        backgroundColor: Colors.whiteColor,
     },
     emoticon_smile: {
         width: 18,
