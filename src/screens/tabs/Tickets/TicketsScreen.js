@@ -4,6 +4,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import appStyles from '../../../styles/app-style';
 // import styles from './style';
 import EventItem from '../../../components/EventItem';
+import Colors from '../../../constants/Colors';
 
 const DATA = [
   {
@@ -79,6 +80,7 @@ class TicketsScreen extends React.Component {
                 data={DATA} 
                 renderItem={({ item }) => (
                   <TouchableOpacity
+                    style={{borderColor: Colors.lightGrayColor, borderBottomWidth: 1}}
                     onPress={() => this.onPress(item)} 
                   >
                     <EventItem name={item.name} place={item.place} open_at={item.open_at} />

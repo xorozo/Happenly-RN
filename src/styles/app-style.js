@@ -36,6 +36,7 @@ export default {
       shadowOpacity: 0.22,
       shadowRadius: 2.22,
       elevation: 3,
+      marginBottom: 5
     },
     light_shadow: {
       shadowColor: '#000',
@@ -46,6 +47,7 @@ export default {
       shadowOpacity: 0.20,
       shadowRadius: 1.41,
       elevation: 2,
+      marginBottom: 5
     },
     strong_shadow: {
       shadowColor: '#000',
@@ -56,6 +58,7 @@ export default {
       shadowOpacity: 0.23,
       shadowRadius: 2.62,
       elevation: 4,
+      marginBottom: 5
     },
     w_100: {
       width: '100%',

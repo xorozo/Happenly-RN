@@ -44,9 +44,24 @@ const MainAppNavigator = createStackNavigator({
     screen: ProfileEditScreen,
     navigationOptions: noHeaderConfig,
   },
-  MyPlaces: {screen: MyPlacesScreen},
-  MyArtists: {screen: MyArtistsScreen},
-  FavoritedEvents: {screen: FavoritedEventsScreen},
+  MyPlaces: {
+    screen: MyPlacesScreen,
+    navigationOptions: {
+      title: 'My Places',
+    }
+  },
+  MyArtists: {
+    screen: MyArtistsScreen,
+    navigationOptions: {
+      title: 'My Artists',
+    }
+  },
+  FavoritedEvents: {
+    screen: FavoritedEventsScreen,
+    navigationOptions: {
+      title: 'Favorited Events',
+    }
+  },
   PaymentMethod: {screen: PaymentMethodScreen},
   Settings: {
     screen: SettingsScreen,
