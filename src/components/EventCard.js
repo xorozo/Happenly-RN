@@ -3,6 +3,7 @@ import { View, StyleSheet, ImageBackground, TouchableOpacity, Image, Text, Dimen
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import appStyles from '../styles/app-style';
+import FavoriteButton from './FavoriteButton'
 import AvatarGroup from './AvatarGroup';
 
 export default function EventCard(props) {
@@ -13,14 +14,7 @@ export default function EventCard(props) {
                 style={[styles.card_image, props.size == 'sm' && {height: Dimensions.get('window').width * 0.35}, props.size != 'sm' && {height: Dimensions.get('window').width * 0.55}]}
                 source={require('../../assets/images/events/events0.png')} 
             >
-                <TouchableOpacity
-                    style={styles.favorite_button}
-                >
-                    <Image 
-                        source={require('../../assets/images/icons/heart-white.png')} 
-                        style={styles.heart_icon}
-                    />
-                </TouchableOpacity>
+                <FavoriteButton style={styles.favorite_button} />
             </ImageBackground>
         </View>
         <View style={[styles.item_container, props.size == 'sm' && {paddingTop: 5, paddingBottom: 5}]}>
@@ -95,8 +89,11 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     favorite_button: {
-        marginTop: 10,
-        marginRight: 10,
+        marginTop: 5,
+        marginRight: 5,
+        width: 40,
+        height: 40,
+        padding: 5,
     },
     heart_icon: {
         width: 30,

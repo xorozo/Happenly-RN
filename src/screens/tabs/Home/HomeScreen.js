@@ -83,16 +83,19 @@ class HomeScreen extends React.Component {
                 </TouchableOpacity>
                 <HeroImageSlider />
                 <View style={[appStyles.row_container, styles.search_box]}>
-                  <Image 
-                    source={require('../../../../assets/images/icons/search0.png')} 
-                    style={styles.search_icon} 
-                  />
-                  <TextInput 
-                    placeholder={'Search'}
-                    placeholderTextColor={Colors.grayColor} 
-                    maxLength={40} 
-                    style={styles.search_input} 
-                  />
+                  <View style={styles.bg_overlay} />
+                  <View style={styles.search_form}>
+                    <Image 
+                      source={require('../../../../assets/images/icons/search0.png')} 
+                      style={styles.search_icon} 
+                    />
+                    <TextInput 
+                      placeholder={'Search'}
+                      placeholderTextColor={Colors.grayColor} 
+                      maxLength={40} 
+                      style={styles.search_input} 
+                    />
+                  </View>
                 </View>
                 <FlatList 
                   style={{paddingTop: 10, paddingBottom: 10}} 
@@ -139,12 +142,22 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     marginTop: -55,
     marginBottom: 5,
+  },
+  bg_overlay: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    backgroundColor: Colors.blackColor,
+    opacity: 0.57,
+  },
+  search_form: {
+    width: '100%',
+    height: '100%',
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 5,
     paddingBottom: 5,
-    backgroundColor: Colors.blackColor,
-    opacity: 0.57,
+    justifyContent: 'center',
   },
   search_icon: {
     width: 25,
