@@ -5,7 +5,9 @@ export default {
     profile_container: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 15,
+        padding: 20,
+        paddingTop: 15,
+        paddingBottom: 15,
         borderBottomColor: Colors.pinkColor,
         borderBottomWidth: 1,
     },
@@ -36,14 +38,14 @@ export default {
         borderBottomWidth: 1,
     },
     item_link: {
-        padding: 15,
+        padding: 20,
         width: '100%',
     },
     button_group: {
         width: '100%',
         justifyContent: 'flex-start', 
         alignItems: 'flex-start',
-        padding: 10,
+        padding: 20,
     },
     signout_button: {
         width: '100%',

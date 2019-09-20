@@ -1,8 +1,20 @@
 import React from 'react';
-import { SafeAreaView, ImageBackground, ScrollView, Image, Text, View, TouchableOpacity, TextInput, Alert, KeyboardAvoidingView, Button } from 'react-native';
+import { SafeAreaView, ImageBackground, ScrollView, Image, Text, View, TouchableOpacity, TextInput, Alert, KeyboardAvoidingView, FlatList } from 'react-native';
 import Colors from '../../../../constants/Colors';
 import appStyles from '../../../../styles/app-style';
 import styles from './style';
+
+const SETTINGS = [
+  {
+    id: 1, key: 'TermsAndPolicies', title: 'Terms & Policies'
+  },
+  {
+    id: 2, key: 'Help', title: 'Help'
+  },
+  {
+    id: 3, key: 'AboutUs', title: 'About Us'
+  },
+]
 
 class SettingsScreen extends React.Component {
   constructor(props) {
@@ -31,33 +43,24 @@ class SettingsScreen extends React.Component {
                     <Text style={[styles.profile_text, appStyles.gray]}>happenly@gmail.com</Text>
                   </View>
                 </View>
+                <FlatList 
+                  data={SETTINGS} 
+                  renderItem={({item}) => (
+                    <View style={styles.settings_item}>
+                      <TouchableOpacity
+                        style={styles.item_link} 
+                        onPress={() => this.props.navigation.navigate(item.key)}
+                      >
+                        <Text style={appStyles.font_lg}>{item.title}</Text>
+                      </TouchableOpacity>
+                    </View>
+                  )} 
+                  keyExtractor={item => item.id.toString()} 
+                />
                 <View 
                   style={styles.settings_container} 
                 >
-                  <View style={styles.settings_item}>
-                    <TouchableOpacity
-                      style={styles.item_link} 
-                      onPress={() => this.props.navigation.navigate('TermsAndPolicies')}
-                    >
-                      <Text style={appStyles.font_lg}>Terms & Policies</Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View style={styles.settings_item}>
-                    <TouchableOpacity
-                      style={styles.item_link} 
-                      onPress={() => this.props.navigation.navigate('Help')}
-                    >
-                      <Text style={appStyles.font_lg}>Help</Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View style={styles.settings_item}>
-                    <TouchableOpacity
-                      style={styles.item_link} 
-                      onPress={() => this.props.navigation.navigate('AboutUs')}
-                    >
-                      <Text style={appStyles.font_lg}>About Us</Text>
-                    </TouchableOpacity>
-                  </View>
+                  
                   <View style={styles.button_group}>
                     <TouchableOpacity
                       style={styles.signout_button} 

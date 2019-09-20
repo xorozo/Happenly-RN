@@ -16,12 +16,12 @@ export default {
     },
     profile_item: {
         justifyContent: 'flex-start', 
-        padding: 10, 
-        paddingTop: 10, 
-        paddingBottom: 10
+        padding: 20,
+        paddingTop: 15,
+        paddingBottom: 15, 
     },
     right_arrow: {
-        width: 15,
+        width: 10,
         height: 15,
         marginLeft: 'auto',
         marginRight: 5,

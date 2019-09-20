@@ -66,11 +66,6 @@ class TicketsScreen extends React.Component {
     }
   }
 
-  static navigationOptions = {
-    title: 'Tickets',
-    headerTitleStyle: { fontSize: 25, fontWeight: 'bold' },
-  }
-
   // === === //
     render() {
         return (
@@ -80,7 +75,7 @@ class TicketsScreen extends React.Component {
                 data={DATA} 
                 renderItem={({ item }) => (
                   <TouchableOpacity
-                    style={{borderColor: Colors.lightGrayColor, borderBottomWidth: 1}}
+                    style={{ paddingLeft: 10, paddingTop: 3, paddingBottom: 3 }}
                     onPress={() => this.onPress(item)} 
                   >
                     <EventItem name={item.name} place={item.place} open_at={item.open_at} />

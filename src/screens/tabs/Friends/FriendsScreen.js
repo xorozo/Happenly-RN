@@ -1,8 +1,81 @@
 import React from 'react';
-import { ImageBackground, Image, Text, View, TouchableOpacity, TouchableHighlight, Alert, KeyboardAvoidingView } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
-import appStyles from '../../../styles/app-style';
-// import styles from './style';
+import { Platform } from 'react-native';
+import { createStackNavigator, createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
+import Colors from '../../../constants/Colors';
+
+import AllFriendsScreen from './AllFriends/AllFriendsScreen';
+import FollowersScreen from './Followers/FollowersScreen';
+import FollowingsScreen from './Followings/FollowingsScreen';
+
+const config = Platform.select({
+  web: { headerMode: 'screen' },
+  default: { headerMode: 'screen' },
+});
+
+const noneHeaderConfig = Platform.select({
+  web: { headerMode: 'screen' },
+  default: { headerMode: 'none' },
+});
+
+const AllFriendsStack = createStackNavigator(
+  {
+    AllFriends: AllFriendsScreen,
+  },
+  noneHeaderConfig
+);
+
+  AllFriendsStack.navigationOptions = {
+    tabBarLabel: 'All Friends',
+  };
+
+  AllFriendsStack.path = '';
+
+const FollowersStack = createStackNavigator(
+  {
+    Followers: FollowersScreen,
+  },
+  noneHeaderConfig
+);
+
+  FollowersStack.navigationOptions = {
+    tabBarLabel: 'Followers',
+  };
+
+  FollowersStack.path = '';
+
+const FollowingsStack = createStackNavigator(
+  {
+    Followings: FollowingsScreen,
+  },
+  noneHeaderConfig
+);
+
+  FollowingsStack.navigationOptions = {
+    // swipEnabled: true,
+    tabBarLabel: 'Followings',
+  };
+
+  FollowingsStack.path = '';
+
+const FriendsStack = createMaterialTopTabNavigator({
+  AllFriendsStack,
+  FollowersStack,
+  FollowingsStack,
+}, {
+  tabBarOptions: {
+    initialRouteName: 'AllFriendsStack',
+    inactiveTintColor: Colors.blackColor,
+    activeTintColor: Colors.pinkColor,
+    upperCaseLabel: false,
+    style: {
+      backgroundColor: Colors.lightGrayColor,
+      borderTopWidth: 0,
+      height: 45,
+    },
+  }
+});
+
+const FriendsNavigator = createAppContainer(FriendsStack);
 
 class FriendsScreen extends React.Component {
   constructor(props) {
@@ -16,9 +89,7 @@ class FriendsScreen extends React.Component {
   // === === //
     render() {
         return (
-            <View style={appStyles.container}>
-                <Text>FriendsScreen</Text>
-            </View>
+            <FriendsNavigator />
         );
     }
 }

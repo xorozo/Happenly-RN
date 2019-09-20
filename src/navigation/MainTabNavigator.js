@@ -1,16 +1,23 @@
 import React from 'react';
 import { Platform, Image } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import Colors from '../constants/Colors';
 import HomeScreen from '../screens/tabs/Home/HomeScreen';
 import SearchScreen from '../screens/tabs/Search/SearchScreen';
 import FriendsScreen from '../screens/tabs/Friends/FriendsScreen';
+  import FollowersScreen from '../screens/tabs/Friends/Followers/FollowersScreen';
+  import FollowingsScreen from '../screens/tabs/Friends/Followings/FollowingsScreen';
 import TicketsScreen from '../screens/tabs/Tickets/TicketsScreen';
 import ProfileScreen from '../screens/tabs/Profile/ProfileScreen';
 
 const config = Platform.select({
+  web: { headerMode: 'screen' },
+  default: { headerMode: 'screen' },
+});
+
+const noneHeaderConfig = Platform.select({
   web: { headerMode: 'screen' },
   default: { headerMode: 'none' },
 });
@@ -20,7 +27,7 @@ const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
   },
-  config
+  noneHeaderConfig
 );
 
 HomeStack.navigationOptions = {
@@ -41,7 +48,7 @@ const SearchStack = createStackNavigator(
   {
     Search: SearchScreen,
   },
-  config
+  noneHeaderConfig
 );
 
 SearchStack.navigationOptions = {
@@ -58,9 +65,75 @@ SearchStack.navigationOptions = {
 SearchStack.path = '';
 
 // --- Friends Tab --- //
+// const AllFriendsStack = createStackNavigator(
+//   {
+//     AllFriends: FriendsScreen,
+//   },
+//   noneHeaderConfig
+// );
+
+//   AllFriendsStack.navigationOptions = {
+//     tabBarLabel: 'All Friends',
+//   };
+
+//   AllFriendsStack.path = '';
+
+// const FollowersStack = createStackNavigator(
+//   {
+//     Followers: FollowersScreen,
+//   },
+//   noneHeaderConfig
+// );
+
+//   FollowersStack.navigationOptions = {
+//     tabBarLabel: 'Followers',
+//   };
+
+//   FollowersStack.path = '';
+
+// const FollowingsStack = createStackNavigator(
+//   {
+//     Followings: FollowingsScreen,
+//   },
+//   noneHeaderConfig
+// );
+
+//   FollowingsStack.navigationOptions = {
+//     // swipEnabled: true,
+//     tabBarLabel: 'Followings',
+//   };
+
+//   FollowingsStack.path = '';
+
+// const FriendsStack = createMaterialTopTabNavigator({
+//   AllFriendsStack,
+//   FollowersStack,
+//   FollowingsStack,
+// }, {
+//   tabBarOptions: {
+//     initialRouteName: 'AllFriendsStack',
+//     inactiveTintColor: Colors.blackColor,
+//     activeTintColor: Colors.pinkColor,
+//     upperCaseLabel: false,
+    
+//     style: {
+//       backgroundColor: Colors.lightGrayColor,
+//       borderTopWidth: 0,
+//       height: 75,
+//       paddingTop: 25,
+//     }
+//   }
+// });
+
 const FriendsStack = createStackNavigator(
   {
-    Friends: FriendsScreen,
+    Friends: {
+      screen: FriendsScreen,
+      navigationOptions: {
+        title: 'Friends',
+        headerTitleStyle: { fontSize: 25, fontWeight: 'bold' },
+      }
+    },
   },
   config
 );
@@ -81,9 +154,15 @@ FriendsStack.path = '';
 // --- Tickets Tab --- //
 const TicketsStack = createStackNavigator(
   {
-    Tickets: TicketsScreen,
+    Tickets: {
+      screen: TicketsScreen,
+      navigationOptions: {
+        title: 'Tickets',
+        headerTitleStyle: { fontSize: 25, fontWeight: 'bold' },
+      }
+    },
   },
-  {headerMode: 'screen'}
+  config
 );
 
 TicketsStack.navigationOptions = {
@@ -104,7 +183,7 @@ const ProfileStack = createStackNavigator(
   {
     Profile: ProfileScreen,
   },
-  config
+  noneHeaderConfig
 );
 
 ProfileStack.navigationOptions = {
@@ -129,7 +208,7 @@ const tabNavigator = createBottomTabNavigator({
   TicketsStack,
   ProfileStack,
 }, {
-  initialRouteName: 'ProfileStack',
+  initialRouteName: 'FriendsStack',
   tabBarOptions: {
     activeTintColor: Colors.pinkColor,
     style: {

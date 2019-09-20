@@ -69,25 +69,25 @@ const MainAppNavigator = createStackNavigator({
       title: 'Settings',
     }
   },
-  // --- Profile / Settings --- //
-  TermsAndPolicies: {
-    screen: TermsAndPoliciesScreen,
-    navigationOptions: {
-      title: 'Terms & Policies',
-    }
-  },
-  Help: {
-    screen: HelpScreen,
-    navigationOptions: {
-      title: 'Help',
-    }
-  },
-  AboutUs: {
-    screen: AboutUsScreen,
-    navigationOptions: {
-      title: 'About Us',
-    }
-  },
+    // --- Profile / Settings --- //
+    TermsAndPolicies: {
+      screen: TermsAndPoliciesScreen,
+      navigationOptions: {
+        title: 'Terms & Policies',
+      }
+    },
+    Help: {
+      screen: HelpScreen,
+      navigationOptions: {
+        title: 'Help',
+      }
+    },
+    AboutUs: {
+      screen: AboutUsScreen,
+      navigationOptions: {
+        title: 'About Us',
+      }
+    },
 },{
   initialRouteName: 'Tab',
   mode: 'modal',

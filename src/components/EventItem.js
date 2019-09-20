@@ -10,7 +10,7 @@ export default function EventItem(props) {
     <View style={styles.item_container}>
         <View style={{flex: 8}}>
             <View style={[appStyles.row_container, {justifyContent: 'flex-start'}]}>
-                <Text style={[appStyles.font_lg, appStyles.font_bold]}>{props.name}</Text>
+                <Text style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}>{props.name}</Text>
             </View>
             <View style={[appStyles.row_container, {justifyContent: 'flex-start'}]}>
                 <View>

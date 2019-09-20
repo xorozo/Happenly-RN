@@ -5,6 +5,25 @@ import appStyles from '../../../styles/app-style';
 import styles from './style';
 
 import EventItem from '../../../components/EventItem';
+import { FlatList } from 'react-native-gesture-handler';
+
+const MENU = [
+  {
+    id: 1, key: 'MyPlaces', title: 'My Places'
+  },
+  {
+    id: 2, key: 'MyArtists', title: 'My Artists'
+  },
+  {
+    id: 3, key: 'FavoritedEvents', title: 'Favorited Events'
+  },
+  {
+    id: 4, key: 'PaymentMethod', title: 'Payment Method'
+  },
+  {
+    id: 5, key: 'Settings', title: 'Settings'
+  }
+]
 
 class ProfileScreen extends React.Component {
   constructor(props) {
@@ -54,85 +73,43 @@ class ProfileScreen extends React.Component {
               </ImageBackground>
               <View style={[appStyles.col_container, {flex: 3}]}>
                 <ScrollView style={[appStyles.w_100, {flex: 1}]}>
-                  <TouchableOpacity
-                    style={{width: 110}}
-                    onPress={() => this.goNextEvent()}
-                  >
-                    <Text style={[appStyles.gray, appStyles.font_md, {paddingLeft: 10, paddingTop: 10}]} >NEXT EVENT</Text>
-                  </TouchableOpacity>
-                  <EventItem 
-                    name='Muse Simulation Theory Tour' 
-                    place='A2 Green Concert Hall' 
-                    open_at='24 JUN' 
-                  />
-                  <TouchableOpacity 
-                    style={{width: 90}}
-                    onPress={() => this.showAllEvents()}
-                  >
-                    <Text style={[appStyles.pink, appStyles.font_md, {padding: 10}]} >All Events</Text>
-                  </TouchableOpacity>
-                  <View style={[appStyles.col_container, {alignItems: 'flex-start', paddingTop: 20, paddingBottom: 20}]}>
+                  <View style={{paddingLeft: 10}}>
                     <TouchableOpacity
-                      style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.props.navigation.navigate('MyPlaces')}
+                      style={{width: 110}}
+                      onPress={() => this.goNextEvent()}
                     >
-                      <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
-                      >My Places</Text>
-                      <Image 
-                        source={require('../../../../assets/images/icons/right-arrow.png')} 
-                        style={styles.right_arrow}
-                      />
+                      <Text style={[appStyles.gray, appStyles.font_md, {paddingLeft: 10, paddingTop: 10}]} >NEXT EVENT</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                      style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.props.navigation.navigate('MyArtists')}
+                    <EventItem 
+                      name='Muse Simulation Theory Tour' 
+                      place='A2 Green Concert Hall' 
+                      open_at='24 JUN' 
+                    />
+                    <TouchableOpacity 
+                      style={{width: 90}}
+                      onPress={() => this.showAllEvents()}
                     >
-                      <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
-                      >My Artists</Text>
-                      <Image 
-                        source={require('../../../../assets/images/icons/right-arrow.png')} 
-                        style={styles.right_arrow}
-                      />
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.props.navigation.navigate('FavoritedEvents')}
-                    >
-                      <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
-                      >Favorited Events</Text>
-                      <Image 
-                        source={require('../../../../assets/images/icons/right-arrow.png')} 
-                        style={styles.right_arrow}
-                      />
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.props.navigation.navigate('Payment')}
-                    >
-                      <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
-                      >Payment Method</Text>
-                      <Image 
-                        source={require('../../../../assets/images/icons/right-arrow.png')} 
-                        style={styles.right_arrow}
-                      />
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
-                      onPress={() => this.props.navigation.navigate('Settings')}
-                    >
-                      <Text 
-                        style={[appStyles.font_lg, appStyles.font_bold, {color: Colors.blackMarlinColor}]}
-                      >Settings</Text>
-                      <Image 
-                        source={require('../../../../assets/images/icons/right-arrow.png')} 
-                        style={styles.right_arrow}
-                      />
+                      <Text style={[appStyles.pink, appStyles.font_md, {padding: 10}]} >All Events</Text>
                     </TouchableOpacity>
                   </View>
+                  <FlatList 
+                    style={{marginTop: 15, marginBottom: 15}}
+                    data={MENU} 
+                    renderItem={({item, index, separators}) => ( 
+                      <TouchableOpacity
+                        style={[appStyles.row_container, appStyles.w_100, styles.profile_item]}
+                        onPress={() => this.props.navigation.navigate(item.key)}
+                      >
+                        <Text 
+                          style={[appStyles.font_lg, {color: Colors.blackMarlinColor}]}
+                        >{item.title}</Text>
+                        <Image 
+                          source={require('../../../../assets/images/icons/right-arrow.png')} 
+                          style={styles.right_arrow}
+                        />
+                      </TouchableOpacity>
+                    )}
+                  />
                 </ScrollView>
               </View>
             </View>
