@@ -7,8 +7,6 @@ import Colors from '../constants/Colors';
 import HomeScreen from '../screens/tabs/Home/HomeScreen';
 import SearchScreen from '../screens/tabs/Search/SearchScreen';
 import FriendsScreen from '../screens/tabs/Friends/FriendsScreen';
-  import FollowersScreen from '../screens/tabs/Friends/Followers/FollowersScreen';
-  import FollowingsScreen from '../screens/tabs/Friends/Followings/FollowingsScreen';
 import TicketsScreen from '../screens/tabs/Tickets/TicketsScreen';
 import ProfileScreen from '../screens/tabs/Profile/ProfileScreen';
 
@@ -63,67 +61,6 @@ SearchStack.navigationOptions = {
 };
 
 SearchStack.path = '';
-
-// --- Friends Tab --- //
-// const AllFriendsStack = createStackNavigator(
-//   {
-//     AllFriends: FriendsScreen,
-//   },
-//   noneHeaderConfig
-// );
-
-//   AllFriendsStack.navigationOptions = {
-//     tabBarLabel: 'All Friends',
-//   };
-
-//   AllFriendsStack.path = '';
-
-// const FollowersStack = createStackNavigator(
-//   {
-//     Followers: FollowersScreen,
-//   },
-//   noneHeaderConfig
-// );
-
-//   FollowersStack.navigationOptions = {
-//     tabBarLabel: 'Followers',
-//   };
-
-//   FollowersStack.path = '';
-
-// const FollowingsStack = createStackNavigator(
-//   {
-//     Followings: FollowingsScreen,
-//   },
-//   noneHeaderConfig
-// );
-
-//   FollowingsStack.navigationOptions = {
-//     // swipEnabled: true,
-//     tabBarLabel: 'Followings',
-//   };
-
-//   FollowingsStack.path = '';
-
-// const FriendsStack = createMaterialTopTabNavigator({
-//   AllFriendsStack,
-//   FollowersStack,
-//   FollowingsStack,
-// }, {
-//   tabBarOptions: {
-//     initialRouteName: 'AllFriendsStack',
-//     inactiveTintColor: Colors.blackColor,
-//     activeTintColor: Colors.pinkColor,
-//     upperCaseLabel: false,
-    
-//     style: {
-//       backgroundColor: Colors.lightGrayColor,
-//       borderTopWidth: 0,
-//       height: 75,
-//       paddingTop: 25,
-//     }
-//   }
-// });
 
 const FriendsStack = createStackNavigator(
   {
@@ -208,7 +145,7 @@ const tabNavigator = createBottomTabNavigator({
   TicketsStack,
   ProfileStack,
 }, {
-  initialRouteName: 'FriendsStack',
+  initialRouteName: 'HomeStack',
   tabBarOptions: {
     activeTintColor: Colors.pinkColor,
     style: {

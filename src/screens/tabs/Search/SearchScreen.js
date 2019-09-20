@@ -44,7 +44,7 @@ class SearchScreen extends React.Component {
                   <Text style={[appStyles.gray, appStyles.font_lg, appStyles.font_bold]}>Top Shows this Month</Text>
                   <TouchableOpacity 
                     style={{marginLeft: 'auto'}}
-                    onPress={() => Alert.alert('clicked SEE ALL')}
+                    onPress={() => this.props.navigation.navigate('EventList')}
                   >
                     <Text style={[appStyles.pink, appStyles.font_md, appStyles.font_bold]}>SEE ALL</Text>
                   </TouchableOpacity>

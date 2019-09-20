@@ -5,6 +5,7 @@ import MainTabNavigator from './MainTabNavigator';
 import EventDetailScreen from '../screens/main/EventDetail/EventDetailScreen';
 import EventsOnMapScreen from '../screens/main/EventsOnMap/EventsOnMapScreen';
 import SearchOnMapScreen from '../screens/main/SearchOnMap/SearchOnMapScreen';
+import EventListScreen from '../screens/main/EventList/EventListScreen';
 // === Profile Tab === //
 import ProfileEditScreen from '../screens/tabs/Profile/ProfileEdit/ProfileEditScreen';
 import MyPlacesScreen from '../screens/tabs/Profile/MyPlaces/MyPlacesScreen';
@@ -38,6 +39,12 @@ const MainAppNavigator = createStackNavigator({
   SearchOnMap: {
     screen: SearchOnMapScreen,
     navigationOptions: noHeaderConfig,
+  },
+  EventList: {
+    screen: EventListScreen,
+    navigationOptions: {
+      title: 'All Events',
+    },
   },
   // === Profile Tab === //
   ProfileEdit: {
