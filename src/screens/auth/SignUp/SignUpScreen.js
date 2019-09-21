@@ -1,6 +1,5 @@
 import React from 'react';
-import { ImageBackground, Image, Text, View, TouchableOpacity, TouchableHighlight, Alert, KeyboardAvoidingView } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { ImageBackground, ScrollView, Image, Text, TextInput, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import appStyles from '../../../styles/app-style';
 import styles from './style';
 
@@ -16,82 +15,80 @@ class SiginUpScreen extends React.Component {
   // === === //
   render() {
       return (
-        <ImageBackground source={require('../../../../assets/images/backgrounds/bg-auth.png')} style={appStyles.container}>
-          <View style={appStyles.col_container}>
-            <Image source={require('../../../../assets/images/logo-white.png')} style={styles.logo}></Image>
-          </View>
-          <View style={[appStyles.col_container, {flex: 2}]}>
-            <KeyboardAvoidingView 
-              behavior="padding" 
-              enabled
-            >
-              <View style={appStyles.col_container}>
-                <View style={[styles.inline_group, appStyles.borderBottom]}>
-                  <Text style={[appStyles.white, appStyles.font_md, {width:100}]}>FIRST NAME: </Text>
-                  <TextInput style={[appStyles.white, appStyles.font_md, {width: 170}]} 
+        <ImageBackground 
+          source={require('../../../../assets/images/backgrounds/bg-auth.png')} 
+          style={styles.container}
+        >
+          <KeyboardAvoidingView 
+            behavior="height" 
+            enabled
+          >
+            <ScrollView>
+              <View style={styles.logo_container}>
+                <Image 
+                  source={require('../../../../assets/images/logo-white.png')} 
+                  style={styles.logo}>
+                </Image>
+              </View>
+              <View style={styles.signup_form}>
+                <View style={styles.form_group}>
+                  <Text style={styles.input_label}>First Name</Text>
+                  <TextInput style={styles.text_input} 
                     maxLength={40} 
-                    autoCompleteType='email' 
+                    // placeholder='First Name'
                   ></TextInput>
                 </View>
-              </View>
-              <View style={appStyles.col_container}>
-                <View style={[styles.inline_group, appStyles.borderBottom]}>
-                  <Text style={[appStyles.white, appStyles.font_md, {width:100}]}>LAST NAME: </Text>
-                  <TextInput style={[appStyles.white, appStyles.font_md, {width: 170}]} 
+                <View style={styles.form_group}>
+                  <Text style={styles.input_label}>Last Name</Text>
+                  <TextInput style={styles.text_input} 
                     maxLength={40} 
-                    autoCompleteType='email' 
+                    // placeholder='Last Name'
                   ></TextInput>
                 </View>
-              </View>
-              <View style={appStyles.col_container}>
-                <View style={[styles.inline_group, appStyles.borderBottom]}>
-                  <Text style={[appStyles.white, appStyles.font_md, {width:55}]}>EMAIL: </Text>
-                  <TextInput style={[appStyles.white, appStyles.font_md, {width: 215}]} 
+                <View style={styles.form_group}>
+                  <Text style={styles.input_label}>Email</Text>
+                  <TextInput style={styles.text_input} 
                     maxLength={40} 
-                    autoCompleteType='email' 
+                    // placeholder='Email'
                   ></TextInput>
                 </View>
-              </View>
-              <View style={appStyles.col_container}>
-                <View style={[styles.inline_group, appStyles.borderBottom]}>
-                  <Text style={[appStyles.white, appStyles.font_md, {width:95}]}>PASSWORD: </Text>
-                  <TextInput style={[appStyles.white, appStyles.font_md, {width: 175}]} 
+                <View style={styles.form_group}>
+                  <Text style={styles.input_label}>Password</Text>
+                  <TextInput style={styles.text_input} 
                     maxLength={40} 
+                    // placeholder='Password'
                     autoCompleteType='password' 
                     secureTextEntry={true} 
                   ></TextInput>
                 </View>
-              </View>
-              <View style={appStyles.col_container}>
-                <View style={[styles.inline_group, appStyles.borderBottom]}>
-                  <Text style={[appStyles.white, appStyles.font_md, {width:95}]}>CONFIRM PASSWORD: </Text>
-                  <TextInput style={[appStyles.white, appStyles.font_md, {width: 175}]} 
+                <View style={styles.form_group}>
+                  <Text style={styles.input_label}>Confirm Password</Text>
+                  <TextInput style={styles.text_input} 
                     maxLength={40} 
+                    // placeholder='Confirm Password'
                     autoCompleteType='password' 
                     secureTextEntry={true} 
                   ></TextInput>
                 </View>
+                <View style={styles.form_group}>
+                  <TouchableOpacity 
+                    onPress={() => this.signUp()} 
+                    style={styles.signup_button}
+                  >
+                    <Text style={[appStyles.primary, appStyles.font_md]}>Sign Up</Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                  <Text style={[appStyles.silver, appStyles.font_sm, {paddingTop: 2}]}>Already have an account? </Text>
+                  <TouchableOpacity 
+                    onPress={() => this.goSignInScreen()}
+                  >
+                    <Text style={appStyles.white}>Sign In</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-              <View style={appStyles.col_container}>
-                <TouchableOpacity 
-                  onPress={() => this.signUp()} 
-                  style={styles.button}
-                >
-                  <Text style={[appStyles.primary, appStyles.font_md]}>SIGN UP</Text>
-                </TouchableOpacity>
-              </View>
-            </KeyboardAvoidingView>
-          </View>
-          <View style={[appStyles.col_container, {justifyContent: 'flex-start'}]}>
-            <View style={[styles.inline_group, styles.borderTop]}>
-              <Text style={[appStyles.silver, appStyles.font_sm, {paddingTop: 2}]}>I have an account. Let me </Text>
-              <TouchableHighlight 
-                onPress={() => this.goSignInScreen()}
-              >
-                <Text style={appStyles.white}>SIGN IN</Text>
-              </TouchableHighlight>
-            </View>
-          </View>
+            </ScrollView>
+          </KeyboardAvoidingView>
         </ImageBackground>
       );
   }

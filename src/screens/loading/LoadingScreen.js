@@ -25,8 +25,8 @@ class LoadingScreen extends React.Component {
                 error: null,
             };
             this.setState({spinner: false});
-            console.log('=====>>>>>', global.my_location);
-            this.enterApp();
+            // console.log('=====>>>>>', global.my_location);
+            this.enterAuth();
         },
         (error) => {
             global.my_location = {
@@ -35,7 +35,7 @@ class LoadingScreen extends React.Component {
                 error: error.message,
             };
             this.setState({spinner: false});
-            console.log('=====>>>>>', global.my_location);
+            // console.log('=====>>>>>', global.my_location);
             this.enterAuth();
         },
         {

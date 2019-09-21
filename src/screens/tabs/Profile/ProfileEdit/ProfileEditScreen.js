@@ -4,17 +4,22 @@ import Colors from '../../../../constants/Colors';
 import appStyles from '../../../../styles/app-style';
 import styles from './style';
 
+import * as ImagePicker from 'expo-image-picker';
+import Constants from 'expo-constants';
+import * as Permissions from 'expo-permissions';
+
 class ProfileEditScreen extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      image: null,
     }
   }
 
   // === === //
     render() {
+      let { image } = this.state;
         return (
             <KeyboardAvoidingView style={appStyles.container}
               behavior='padding' 
@@ -37,11 +42,10 @@ class ProfileEditScreen extends React.Component {
                     <View style={{flex: 1}}>
                       <TouchableOpacity
                         style={styles.upload_avatar}
-                        onPress={() => Alert.alert('Upload Photo!')} 
+                        onPress={() => this._pickImage()} 
                       >
-                        <Image style={styles.avatar} 
-                          source={require('../../../../../assets/images/avatars/avatar-f.png')} 
-                        />
+                        {image && <Image source={{ uri: image }} style={styles.avatar} />}
+                        {!image && <Image style={styles.avatar} source={require('../../../../../assets/images/avatars/avatar-f.png')} />}
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -110,21 +114,32 @@ class ProfileEditScreen extends React.Component {
         );
     }
 
-  editProfile = () => {
-    Alert.alert('You clicked Edit Profile');
-  }
-
-  goNextEvent = () => {
-    Alert.alert('You clicked NEXT EVENT');
-  }
-
-  showAllEvents = () => {
-    Alert.alert('Show all events');
-  }
-
-  goMyPlaces = () => {
-    Alert.alert('Show all events');
-  }
+    componentDidMount() {
+      this.getPermissionAsync();
+    }
+  
+    getPermissionAsync = async () => {
+      if (Constants.platform.ios) {
+        const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+        if (status !== 'granted') {
+          alert('Sorry, we need camera roll permissions to make this work!');
+        }
+      }
+    }
+  
+    _pickImage = async () => {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [1, 1],
+      });
+  
+      console.log(result);
+  
+      if (!result.cancelled) {
+        this.setState({ image: result.uri });
+      }
+    };
 }
 
 export default ProfileEditScreen;

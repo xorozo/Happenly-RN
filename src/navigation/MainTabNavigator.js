@@ -145,7 +145,7 @@ const tabNavigator = createBottomTabNavigator({
   TicketsStack,
   ProfileStack,
 }, {
-  initialRouteName: 'HomeStack',
+  // initialRouteName: 'HomeStack',
   tabBarOptions: {
     activeTintColor: Colors.pinkColor,
     style: {
