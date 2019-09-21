@@ -15,7 +15,7 @@ class LoadingScreen extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.spinner = true;
+    this.props.spinner = true;
     this.setState({spinner: true});
     navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -57,13 +57,13 @@ class LoadingScreen extends React.Component {
   // === === //
     render() {
         return (
-          <ImageBackground source={require('../../../assets/images/splash.png')} style={appStyles.container}>
+          // <ImageBackground source={require('../../../assets/images/splash.png')} style={appStyles.container}>
             <Spinner
               visible={this.state.spinner}
               textContent={'Loading...'}
               textStyle={styles.spinnerTextStyle}
             />
-          </ImageBackground>
+          // </ImageBackground>
         );
     }
 

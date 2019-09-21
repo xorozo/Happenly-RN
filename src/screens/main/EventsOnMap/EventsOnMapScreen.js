@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, ImageBackground, Image, Text, View, TouchableOpacity, TouchableHighlight, Alert, KeyboardAvoidingView, StyleSheet, Dimensions, FlatList } from 'react-native';
 import appStyles from '../../../styles/app-style';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import EventCard from '../../../components/EventCard';
 import Carousel from 'react-native-snap-carousel';
 import styles from './style';
@@ -35,12 +35,17 @@ class EventsOnMapScreen extends React.Component {
               <MapView
                 style={{flex: 1}}
                 initialRegion={{
-                  latitude: 37.78825,
-                  longitude: -122.4324,
+                  latitude: global.my_location.latitude,
+                  longitude: global.my_location.longitude,
                   latitudeDelta: 0.0922,
                   longitudeDelta: 0.0421,
                 }}
-              />
+              >
+                <Marker 
+                  coordinate={global.my_location} 
+                  image={require('../../../../assets/images/icons/marker-red.png')} 
+                />
+              </MapView>
               <View style={styles.carousel_container}>
                 <Carousel
                   layout={'default'}
