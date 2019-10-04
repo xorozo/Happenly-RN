@@ -68,7 +68,12 @@ const FriendsStack = createStackNavigator(
       screen: FriendsScreen,
       navigationOptions: {
         title: 'Friends',
-        headerTitleStyle: { fontSize: 25, fontWeight: 'bold' },
+        headerLayoutPreset: 'center',
+        headerTitleStyle: {
+          alignSelf: 'center',
+          textAlign: 'center',
+          // flex: 1,
+        },
       }
     },
   },
@@ -95,7 +100,12 @@ const TicketsStack = createStackNavigator(
       screen: TicketsScreen,
       navigationOptions: {
         title: 'Tickets',
-        headerTitleStyle: { fontSize: 25, fontWeight: 'bold' },
+        headerLayoutPreset: 'center',
+        headerTitleStyle: {
+          alignSelf: 'center',
+          textAlign: 'center',
+          // flex: 1,
+        },
       }
     },
   },

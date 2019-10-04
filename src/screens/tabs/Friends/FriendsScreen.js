@@ -70,7 +70,11 @@ const FriendsStack = createMaterialTopTabNavigator({
     style: {
       backgroundColor: Colors.lightGrayColor,
       borderTopWidth: 0,
+      borderTopColor: Colors.pinkColor,
       height: 45,
+    },
+    indicatorStyle: {
+      backgroundColor: Colors.pinkColor,
     },
   }
 });

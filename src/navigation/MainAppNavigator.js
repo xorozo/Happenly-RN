@@ -44,6 +44,12 @@ const MainAppNavigator = createStackNavigator({
     screen: EventListScreen,
     navigationOptions: {
       title: 'All Events',
+      headerLayoutPreset: 'center',
+      headerTitleStyle: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        // flex: 1,
+      },
     },
   },
   // === Profile Tab === //
@@ -55,25 +61,60 @@ const MainAppNavigator = createStackNavigator({
     screen: MyPlacesScreen,
     navigationOptions: {
       title: 'My Places',
+      headerLayoutPreset: 'center',
+      headerTitleStyle: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        // flex: 1,
+      },
     }
   },
   MyArtists: {
     screen: MyArtistsScreen,
     navigationOptions: {
       title: 'My Artists',
+      headerLayoutPreset: 'center',
+      headerTitleStyle: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        // flex: 1,
+      },
     }
   },
   FavoritedEvents: {
     screen: FavoritedEventsScreen,
     navigationOptions: {
       title: 'Favorited Events',
+      headerLayoutPreset: 'center',
+      headerTitleStyle: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        // flex: 1,
+      },
     }
   },
-  PaymentMethod: {screen: PaymentMethodScreen},
+  PaymentMethod: {
+    screen: PaymentMethodScreen,
+    navigationOptions: {
+      title: 'Payment Method',
+      headerLayoutPreset: 'center',
+      headerTitleStyle: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        // flex: 1,
+      },
+    }
+  },
   Settings: {
     screen: SettingsScreen,
     navigationOptions: {
       title: 'Settings',
+      headerLayoutPreset: 'center',
+      headerTitleStyle: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        // flex: 1,
+      },
     }
   },
     // --- Profile / Settings --- //
@@ -81,18 +122,36 @@ const MainAppNavigator = createStackNavigator({
       screen: TermsAndPoliciesScreen,
       navigationOptions: {
         title: 'Terms & Policies',
+        headerLayoutPreset: 'center',
+      headerTitleStyle: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        // flex: 1,
+      },
       }
     },
     Help: {
       screen: HelpScreen,
       navigationOptions: {
         title: 'Help',
+        headerLayoutPreset: 'center',
+      headerTitleStyle: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        // flex: 1,
+      },
       }
     },
     AboutUs: {
       screen: AboutUsScreen,
       navigationOptions: {
         title: 'About Us',
+        headerLayoutPreset: 'center',
+      headerTitleStyle: {
+        alignSelf: 'center',
+        textAlign: 'center',
+        // flex: 1,
+      },
       }
     },
 },{

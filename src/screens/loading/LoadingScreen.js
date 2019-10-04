@@ -16,7 +16,7 @@ class LoadingScreen extends React.Component {
 
   componentDidMount() {
     this.props.spinner = true;
-    this.setState({spinner: true});
+    // this.setState({spinner: true});
     navigator.geolocation.getCurrentPosition(
         (position) => {
             global.my_location = {
@@ -26,7 +26,7 @@ class LoadingScreen extends React.Component {
             };
             this.setState({spinner: false});
             // console.log('=====>>>>>', global.my_location);
-            this.enterAuth();
+            this.enterApp();
         },
         (error) => {
             global.my_location = {
