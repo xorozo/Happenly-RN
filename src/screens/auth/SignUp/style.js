@@ -1,31 +1,51 @@
+import { Dimensions } from 'react-native';
+import Colors from '../../../constants/Colors';
+
 export default {
-    logo: {
-      marginTop: '30%',
-      width: 250,
-      height: 70,
-    },
-    inline_group: {
-      width: 280,
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    borderTop: {
-      marginTop: 5,
-      paddingTop: 5,
-      borderTopColor: '#fff',
-      borderTopWidth: 1,
-    },
-    input_text: {
-      fontSize: 18,
-    },
-    button: {
-      width: 280,
-      height: 40,
-      backgroundColor: '#fff',
-      color: '#f00',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  }
+  container: {
+    height: '100%',
+    flexDirection: 'column',
+  },
+  logo_container: {
+    height: Dimensions.get('window').height * 0.3,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  logo: {
+    width: Dimensions.get('window').width * 0.7,
+    height: Dimensions.get('window').width * 0.7 * 0.3,
+  },
+  signup_form: {
+    alignItems: 'center',
+    paddingTop: 20,
+  },
+  form_group: {
+    width: '80%',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    borderColor: Colors.whiteColor,
+    borderBottomWidth: 1,
+  },
+  input_label: {
+    width: '100%',
+    fontSize: 12,
+    color: Colors.whiteColor,
+  },
+  text_input: {
+    width: '100%',
+    fontSize: 15,
+    color: Colors.whiteColor,
+  },
+  signup_button: {
+    marginTop: 10,
+    marginBottom: 10,
+    width: '100%',
+    height: 40,
+    backgroundColor: Colors.whiteColor,
+    color: '#f00',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}

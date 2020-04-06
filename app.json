@@ -3,7 +3,7 @@
     "name": "Happenly",
     "slug": "Happenly",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
+    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
@@ -24,7 +24,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.blade.happenly"
+    },
+    "android": {
+      "package": "com.blade.happenly",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAn8jM6GqAeE0UhQjJohWWci0Qcf5GQXjY"
+        }
+      }
     }
   }
 }

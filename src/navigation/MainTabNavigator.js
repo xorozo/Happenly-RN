@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform, Image } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import Colors from '../constants/Colors';
@@ -12,7 +12,12 @@ import ProfileScreen from '../screens/tabs/Profile/ProfileScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
-  default: {},
+  default: { headerMode: 'screen' },
+});
+
+const noneHeaderConfig = Platform.select({
+  web: { headerMode: 'screen' },
+  default: { headerMode: 'none' },
 });
 
 // --- Home Tab --- //
@@ -20,7 +25,7 @@ const HomeStack = createStackNavigator(
   {
     Home: HomeScreen,
   },
-  config
+  noneHeaderConfig
 );
 
 HomeStack.navigationOptions = {
@@ -32,7 +37,6 @@ HomeStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 HomeStack.path = '';
@@ -42,7 +46,7 @@ const SearchStack = createStackNavigator(
   {
     Search: SearchScreen,
   },
-  config
+  noneHeaderConfig
 );
 
 SearchStack.navigationOptions = {
@@ -54,15 +58,24 @@ SearchStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 SearchStack.path = '';
 
-// --- Friends Tab --- //
 const FriendsStack = createStackNavigator(
   {
-    Friends: FriendsScreen,
+    Friends: {
+      screen: FriendsScreen,
+      navigationOptions: {
+        title: 'Friends',
+        headerLayoutPreset: 'center',
+        headerTitleStyle: {
+          alignSelf: 'center',
+          textAlign: 'center',
+          // flex: 1,
+        },
+      }
+    },
   },
   config
 );
@@ -76,7 +89,6 @@ FriendsStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 FriendsStack.path = '';
@@ -84,7 +96,18 @@ FriendsStack.path = '';
 // --- Tickets Tab --- //
 const TicketsStack = createStackNavigator(
   {
-    Tickets: TicketsScreen,
+    Tickets: {
+      screen: TicketsScreen,
+      navigationOptions: {
+        title: 'Tickets',
+        headerLayoutPreset: 'center',
+        headerTitleStyle: {
+          alignSelf: 'center',
+          textAlign: 'center',
+          // flex: 1,
+        },
+      }
+    },
   },
   config
 );
@@ -98,7 +121,6 @@ TicketsStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 TicketsStack.path = '';
@@ -108,7 +130,7 @@ const ProfileStack = createStackNavigator(
   {
     Profile: ProfileScreen,
   },
-  config
+  noneHeaderConfig
 );
 
 ProfileStack.navigationOptions = {
@@ -120,7 +142,6 @@ ProfileStack.navigationOptions = {
       style={{ width: 30, height: 30 }}
     />
   ),
-  tabBarOptions: { activeTintColor: Colors.pinkColor },
 };
 
 ProfileStack.path = '';
@@ -133,6 +154,15 @@ const tabNavigator = createBottomTabNavigator({
   FriendsStack,
   TicketsStack,
   ProfileStack,
+}, {
+  // initialRouteName: 'HomeStack',
+  tabBarOptions: {
+    activeTintColor: Colors.pinkColor,
+    style: {
+      backgroundColor: Colors.lightGrayColor,
+      borderTopWidth: 0
+    }
+  }
 });
 
 tabNavigator.path = '';
